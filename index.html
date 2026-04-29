@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <title>Dibakar | Important Webpage Link Portal ✨</title>
+  <meta name="description" content="Search and access all important government, education, voter services and utility links in one place">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Light Mode (Default) */
+    :root {
+      --bg-primary: radial-gradient(circle at 10% 20%, rgba(20, 60, 30, 0.12), rgba(0, 40, 50, 0.08)),
+                    linear-gradient(135deg, #c8e6c9 0%, #b2dfdb 30%, #fff9c4 70%, #ffe0b2 100%);
+      --card-bg: rgba(255, 255, 255, 0.94);
+      --text-primary: #1b4d2e;
+      --text-secondary: #2c3e40;
+      --border-color: rgba(255, 215, 100, 0.4);
+      --header-bg: rgba(255, 255, 255, 0.4);
+      --contact-bg: rgba(255, 255, 245, 0.75);
+      --search-bg: rgba(255,255,255,0.95);
+      --info-strip: linear-gradient(115deg, #1f3b2c, #0f2d3a);
+      --footer-color: #1b4d2e;
+      --stat-bg: rgba(46,125,50,0.1);
+    }
+
+    /* Dark Mode */
+    body.dark {
+      --bg-primary: radial-gradient(circle at 10% 20%, rgba(0, 20, 10, 0.9), rgba(0, 30, 40, 0.85)),
+                    linear-gradient(135deg, #1a2a1a 0%, #1a2e2a 30%, #2a2a1a 70%, #2a201a 100%);
+      --card-bg: rgba(30, 40, 35, 0.94);
+      --text-primary: #c8e6c9;
+      --text-secondary: #b2dfdb;
+      --border-color: rgba(255, 215, 100, 0.3);
+      --header-bg: rgba(20, 30, 20, 0.5);
+      --contact-bg: rgba(30, 40, 30, 0.8);
+      --search-bg: rgba(40, 50, 40, 0.95);
+      --info-strip: linear-gradient(115deg, #0a1a10, #051a15);
+      --footer-color: #a5d6a7;
+      --stat-bg: rgba(46,125,50,0.2);
+    }
+
+    body {
+      background: var(--bg-primary);
+      font-family: 'Inter', 'Space Grotesk', sans-serif;
+      padding: 12px;
+      position: relative;
+      min-height: 100vh;
+      transition: background 0.3s ease;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#2e7d32 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .portal-container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Dark Mode Toggle Button */
+    .dark-mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #2c7a47, #0288d1);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: white;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    .dark-mode-toggle:hover {
+      transform: scale(1.05);
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 16px;
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      border-radius: 32px;
+      padding: 20px 12px;
+      box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.15);
+      border: 1px solid var(--border-color);
+    }
+
+    .badge-important {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #1b5e20, #0288d1, #fbc02d);
+      background-size: 200% 200%;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 5px 12px;
+      border-radius: 40px;
+      margin-bottom: 12px;
+      animation: gradientShift 4s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .premium-name {
+      font-size: clamp(1.8rem, 7vw, 3.5rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #ff8f00, #ffca28, #fbc02d, #0288d1, #1b5e20, #ff8f00);
+      background-size: 400% 400%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+      animation: premiumShine 8s ease infinite;
+    }
+
+    @keyframes premiumShine {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .sub-title {
+      font-size: clamp(0.9rem, 4vw, 1.3rem);
+      font-weight: 600;
+      background: linear-gradient(135deg, #0a3d1a, #0b5e7a, #00acc1);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .portal-sub {
+      font-size: clamp(9px, 3vw, 12px);
+      background: var(--contact-bg);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 40px;
+      margin-top: 8px;
+      font-weight: 600;
+      color: #01579b;
+      border: 1px solid #ffe082;
+    }
+
+    .desc {
+      max-width: 90%;
+      margin: 12px auto 0;
+      font-size: clamp(10px, 3.5vw, 13px);
+      background: var(--contact-bg);
+      backdrop-filter: blur(8px);
+      padding: 8px 16px;
+      border-radius: 32px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* SEARCH BOX */
+    .search-container {
+      margin: 20px 0 16px;
+      position: relative;
+    }
+    .search-box {
+      width: 100%;
+      max-width: 550px;
+      margin: 0 auto;
+      display: block;
+      position: relative;
+    }
+    .search-box i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ff8f00;
+      font-size: 18px;
+      z-index: 1;
+    }
+    .search-input {
+      width: 100%;
+      padding: 14px 20px 14px 52px;
+      border: 2px solid rgba(255,143,0,0.3);
+      border-radius: 60px;
+      font-size: 14px;
+      background: var(--search-bg);
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+      outline: none;
+      font-family: inherit;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .search-input:focus {
+      border-color: #ff8f00;
+      box-shadow: 0 0 0 3px rgba(255,143,0,0.2);
+    }
+    .search-stats {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 8px;
+      background: var(--contact-bg);
+      display: inline-block;
+      padding: 4px 16px;
+      border-radius: 40px;
+    }
+    .clear-search {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      font-size: 16px;
+      display: none;
+    }
+    .clear-search.visible {
+      display: block;
+    }
+
+    .contact-showcase {
+      background: var(--contact-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 28px;
+      padding: 12px 16px;
+      margin: 16px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255,235,150,0.7);
+    }
+
+    .contact-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(230,247,236,0.95);
+      padding: 6px 12px;
+      border-radius: 40px;
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .contact-item i {
+      font-size: 12px;
+      color: #2e7d32;
+    }
+
+    .contact-item a {
+      text-decoration: none;
+      color: #0a6b3e;
+      font-weight: 600;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-2px);
+      background: #d4f1d9;
+    }
+
+    .section-header {
+      display: inline-block;
+      margin: 20px 0 10px 0;
+      padding-bottom: 4px;
+      border-bottom: 2px solid #ffca28;
+      font-size: clamp(14px, 5vw, 20px);
+      font-weight: 700;
+      background: linear-gradient(135deg, #1b5e20, #0288d1);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+      margin: 12px 0 20px;
+    }
+
+    .portal-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(6px);
+      border-radius: 24px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      transition: all 0.25s ease;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .portal-card.hidden {
+      display: none;
+    }
+
+    .portal-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px -10px rgba(0, 80, 50, 0.2);
+      border-color: #ffca28;
+    }
+
+    .card-header {
+      padding: 12px 12px 6px 12px;
+      border-bottom: 1px solid rgba(100, 180, 100, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-emblem {
+      background: linear-gradient(145deg, #e8f5e9, #fff8e1);
+      width: 44px;
+      height: 44px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: #2c7a47;
+      flex-shrink: 0;
+    }
+    body.dark .icon-emblem {
+      background: linear-gradient(145deg, #2a3a2a, #2a2a1a);
+    }
+
+    .title-group h3 {
+      font-size: clamp(14px, 4vw, 18px);
+      font-weight: 700;
+      background: linear-gradient(135deg, #1b5e20, #0d47a1);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .service-type {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: #c8e6c9;
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 20px;
+      color: #00695c;
+      margin-top: 4px;
+    }
+    .card-body {
+      padding: 10px 12px 14px;
+      flex: 1;
+    }
+    .desc-text {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .btn-visit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #2c7a47, #0288d1);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 11px;
+      text-decoration: none;
+      transition: all 0.2s;
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+    }
+    .btn-visit:hover {
+      transform: scale(0.97);
+    }
+
+    .info-strip {
+      background: var(--info-strip);
+      border-radius: 32px;
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+      color: #f1f9e8;
+      font-size: 10px;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 11px;
+      color: var(--footer-color);
+      border-top: 1px solid rgba(255, 210, 90, 0.5);
+      padding-top: 15px;
+      line-height: 1.6;
+    }
+    .footer-services {
+      background: rgba(255,193,7,0.15);
+      padding: 10px;
+      border-radius: 40px;
+      margin: 10px 0;
+      font-size: 11px;
+    }
+    .footer-contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 10px 0;
+    }
+    .footer-contact a {
+      color: var(--footer-color);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,193,7,0.2);
+      padding: 5px 12px;
+      border-radius: 40px;
+      transition: 0.2s;
+    }
+    .footer-contact a:hover {
+      background: rgba(255,193,7,0.4);
+      transform: scale(1.02);
+    }
+
+    .secret-zone {
+      position: fixed;
+      bottom: 12px;
+      right: 12px;
+      width: 44px;
+      height: 44px;
+      background: transparent;
+      cursor: pointer;
+      z-index: 999;
+      opacity: 0.01;
+      border-radius: 50%;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.25s;
+    }
+    .modal-overlay.active { visibility: visible; opacity: 1; }
+    .login-card-modal {
+      background: white;
+      border-radius: 32px;
+      padding: 20px;
+      max-width: 300px;
+      width: 85%;
+      text-align: center;
+      border: 1px solid #ffd966;
+    }
+    .login-card-modal input {
+      width: 100%;
+      padding: 10px;
+      margin: 12px 0;
+      border: 1px solid #ddd;
+      border-radius: 40px;
+    }
+    .login-card-modal button {
+      background: linear-gradient(95deg, #2c7a47, #0288d1);
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 40px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .secret-error { color: red; font-size: 11px; margin-top: 6px; }
+
+    .secret-admin-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #0a1f1a, #031f1c);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3s;
+      backdrop-filter: blur(15px);
+    }
+    .secret-admin-panel.active { visibility: visible; opacity: 1; }
+    .admin-card {
+      background: #1e2a2a;
+      border-radius: 32px;
+      padding: 20px;
+      max-width: 450px;
+      width: 90%;
+      color: #f0f7e6;
+      border: 2px solid #ffd966;
+      text-align: center;
+    }
+    .admin-stats {
+      background: #0f1f1c;
+      padding: 15px;
+      border-radius: 20px;
+      margin: 12px 0;
+      text-align: left;
+    }
+    .admin-stats p {
+      margin: 10px 0;
+      font-size: 13px;
+    }
+    .recent-list-admin {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .recent-item-admin {
+      background: rgba(46,125,50,0.3);
+      padding: 4px 10px;
+      border-radius: 40px;
+      font-size: 10px;
+    }
+    .reset-btn {
+      background: #ff7043;
+      border: none;
+      padding: 6px 15px;
+      border-radius: 40px;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    .close-admin { background: #ff7043; border: none; padding: 8px 20px; border-radius: 40px; color: white; cursor: pointer; margin-top: 10px; }
+
+    @media (min-width: 640px) {
+      body { padding: 16px 24px; }
+      .link-grid { gap: 18px; }
+    }
+    @media (max-width: 480px) {
+      .admin-card { width: 95%; padding: 15px; }
+      .footer-contact { gap: 8px; }
+      .footer-contact a { padding: 4px 10px; font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+<button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
+
+<div class="portal-container">
+  <div class="hero-section">
+    <div class="badge-important"><i class="fas fa-crown"></i> ✨ Welcome to D.B Important Webpage Link Portal ✨</div>
+    <div class="premium-name">Dibakar Basumatary</div>
+    <div class="sub-title">Important Webpage Link Portal</div>
+    <div class="portal-sub"><i class="fas fa-link"></i> SewaSetu • e-District • Aadhaar • RBI • PMJDY • DigiLocker • NTA • Assam Police • Parivahan • APDCL • Indian Oil • UMANG • Passport</div>
+    <div class="desc">🌈 Premium Gateway to Government, Education, Banking, Transport & Utility Services — One Click Away 🌈</div>
+  </div>
+
+  <!-- SEARCH BOX -->
+  <div class="search-container">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search all 35+ links by title, description, or tag..." autocomplete="off">
+      <button id="clearSearchBtn" class="clear-search"><i class="fas fa-times-circle"></i></button>
+    </div>
+    <div style="text-align: center;"><span class="search-stats" id="searchStats">Showing all 35 links</span></div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <div class="contact-showcase">
+    <div class="contact-details">
+      <div class="contact-item" onclick="window.location.href='tel:+918011762513'"><i class="fas fa-phone-alt"></i> <span>+91 8011762513</span></div>
+      <div class="contact-item" onclick="window.location.href='mailto:dibakarbasumatary841@gmail.com'"><i class="fas fa-envelope"></i> <span>dibakarbasumatary841@gmail.com</span></div>
+      <div class="contact-item"><i class="fab fa-facebook"></i><a href="https://www.facebook.com/share/1AgAeBtbud/" target="_blank">Facebook</a></div>
+      <div class="contact-item"><i class="fab fa-instagram"></i><a href="https://www.instagram.com/danswrang3041?igsh=MXRkMzZqbWduMjdsNw==" target="_blank">Instagram</a></div>
+      <div class="contact-item"><i class="fas fa-globe"></i><a href="https://danswrangbasumatary.wixsite.com/dbasumatary" target="_blank">Portfolio</a></div>
+    </div>
+  </div>
+
+  <!-- CORE GOVERNMENT LINKS -->
+  <div><span class="section-header"><i class="fas fa-landmark"></i> Core Government Services</span></div>
+  <div class="link-grid" id="coreLinksGrid"></div>
+
+  <!-- ADDITIONAL SERVICES -->
+  <div><span class="section-header"><i class="fas fa-plus-circle"></i> Additional Essential Services</span></div>
+  <div class="link-grid" id="additionalLinksGrid"></div>
+
+  <!-- NEW LINKS SECTION - Banking, Transport, Utilities -->
+  <div><span class="section-header"><i class="fas fa-bank"></i> Banking, Transport & Utilities</span></div>
+  <div class="link-grid" id="utilityLinksGrid"></div>
+
+  <!-- SAMARTH EDUCATION HUB -->
+  <div><span class="section-header"><i class="fas fa-university"></i> Samarth Education Hub</span></div>
+  <div class="link-grid" id="samarthLinksGrid"></div>
+
+  <div class="info-strip">
+    <span><i class="fas fa-shield-alt"></i> Verified Government Domains</span>
+    <span class="safety-note"><i class="fas fa-lock"></i> SSL Secure | Dibakar Portal v7.0</span>
+  </div>
+  
+  <!-- FOOTER WITH UPDATED MESSAGE -->
+  <footer>
+    <div class="footer-services">
+      <i class="fas fa-heart" style="color: #e91e63;"></i> Dibakar Important Link Portal — Bridging Digital India <i class="fas fa-heart" style="color: #e91e63;"></i><br>
+      Do you want to apply for a new PAN card or make corrections? Minor to major update, caste certificate, income certificate, Gorkha community certificate, voter registration & correction, etc. - For all services, contact me.
+    </div>
+    <div class="footer-contact">
+      <a href="tel:+918011762513"><i class="fas fa-phone-alt"></i> 📞 +91 8011762513</a>
+      <a href="mailto:dibakarbasumatary841@gmail.com"><i class="fas fa-envelope"></i> 📧 dibakarbasumatary841@gmail.com</a>
+      <a href="https://www.facebook.com/share/1AgAeBtbud/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="https://www.instagram.com/danswrang3041?igsh=MXRkMzZqbWduMjdsNw==" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+  </footer>
+</div>
+
+<!-- SECRET ZONE (8 second hold) -->
+<div id="secretHoldZone" class="secret-zone"></div>
+<div id="secretLoginModal" class="modal-overlay">
+  <div class="login-card-modal">
+    <i class="fas fa-shield-alt" style="font-size:2rem; color:#2e7d32;"></i>
+    <h3>Secret Admin Access</h3>
+    <input type="password" id="secretPassword" placeholder="Enter password" autocomplete="off">
+    <button id="verifySecretBtn">Authenticate</button>
+    <div id="secretErrorMsg" class="secret-error"></div>
+    <button id="closeSecretModalBtn" style="background: transparent; color: #666; margin-top: 8px;">Cancel</button>
+  </div>
+</div>
+<div id="secretAdminPanel" class="secret-admin-panel">
+  <div class="admin-card">
+    <i class="fas fa-crown" style="font-size: 2rem; color: #ffd966;"></i>
+    <h2>🔐 Secret Admin Panel</h2>
+    <div class="admin-stats">
+      <p><i class="fas fa-chart-line"></i> <strong>📊 ANALYTICS - Most Used Link</strong></p>
+      <p id="mostUsedLinkAdmin" style="font-size: 14px; color: #ffca28;">None</p>
+      <p id="mostUsedClicksAdmin">Clicks: 0</p>
+      <p><i class="fas fa-users"></i> <strong>Total Visitors:</strong> <span id="totalVisitorsAdmin">0</span></p>
+      <p><i class="fas fa-history"></i> <strong>🕐 RECENTLY CLICKED LINKS</strong></p>
+      <div id="recentListAdmin" class="recent-list-admin">No links clicked yet</div>
+      <button id="resetAnalyticsAdminBtn" class="reset-btn">Reset Analytics</button>
+    </div>
+    <p><i class="fas fa-link"></i> 📊 Total Links: <strong id="statLinks">0</strong> | 🛡️ Security: MAXIMUM</p>
+    <button id="closeAdminPanelBtn" class="close-admin">Exit Panel</button>
+  </div>
+</div>
+
+<script>
+  // ============================================================
+  // DARK MODE
+  // ============================================================
+  const darkToggle = document.getElementById('darkModeToggle');
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    darkToggle.innerHTML = isDark ? '☀️' : '🌙';
+    localStorage.setItem('darkMode', isDark);
+  });
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark');
+    darkToggle.innerHTML = '☀️';
+  }
+
+  // ============================================================
+  // SECRET KEY
+  // ============================================================
+  const _k1 = () => "Dheeraj";
+  const _k2 = () => "@96787";
+  const _k3 = () => "88044";
+  const MASTER_SECRET = (function() { let full = _k1() + _k2() + _k3(); delete window._k1; delete window._k2; delete window._k3; return full; })();
+
+  // ============================================================
+  // ANALYTICS & VISITOR TRACKING
+  // ============================================================
+  let clickCounts = JSON.parse(localStorage.getItem('linkClickCounts')) || {};
+  let recentLinks = JSON.parse(localStorage.getItem('recentLinks')) || [];
+  let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
+  
+  if (!sessionStorage.getItem('visited')) {
+    totalVisitors++;
+    localStorage.setItem('totalVisitors', totalVisitors);
+    sessionStorage.setItem('visited', 'true');
+  }
+
+  function updateAdminPanel() {
+    let mostUsed = { title: "None", count: 0 };
+    for (let [title, count] of Object.entries(clickCounts)) {
+      if (count > mostUsed.count) mostUsed = { title, count };
+    }
+    document.getElementById('mostUsedLinkAdmin').innerHTML = mostUsed.title;
+    document.getElementById('mostUsedClicksAdmin').innerHTML = `Clicks: ${mostUsed.count}`;
+    document.getElementById('totalVisitorsAdmin').innerHTML = totalVisitors;
+    
+    const recentContainer = document.getElementById('recentListAdmin');
+    if (recentLinks.length === 0) {
+      recentContainer.innerHTML = '<span style="font-size:11px;">No links clicked yet</span>';
+    } else {
+      recentContainer.innerHTML = recentLinks.slice(0, 5).map(link => 
+        `<div class="recent-item-admin">🔗 ${link.title.length > 35 ? link.title.substring(0,32)+'..' : link.title}</div>`
+      ).join('');
+    }
+  }
+
+  function recordClick(title, url) {
+    clickCounts[title] = (clickCounts[title] || 0) + 1;
+    localStorage.setItem('linkClickCounts', JSON.stringify(clickCounts));
+    recentLinks = [{ title, url }, ...recentLinks.filter(l => l.title !== title)].slice(0, 5);
+    localStorage.setItem('recentLinks', JSON.stringify(recentLinks));
+    updateAdminPanel();
+  }
+
+  function resetAnalytics() {
+    clickCounts = {};
+    recentLinks = [];
+    localStorage.removeItem('linkClickCounts');
+    localStorage.removeItem('recentLinks');
+    updateAdminPanel();
+  }
+
+  // ============================================================
+  // ALL LINKS DATA (35+ links including new ones)
+  // ============================================================
+  const coreLinks = [
+    { title: "SewaSetu Assam", url: "https://sewasetu.assam.gov.in/site/trackappstatus", icon: "📋", desc: "Track application status in real-time for certificates, licenses.", tag: "TRACK" },
+    { title: "Assam Career", url: "https://www.assamcareer.com/", icon: "💼", desc: "Latest govt job notifications, admit cards, exam results.", tag: "JOB" },
+    { title: "myAadhaar Portal", url: "https://myaadhaar.uidai.gov.in/", icon: "🆔", desc: "Download Aadhaar, update profile, lock biometrics.", tag: "AADHAAR" },
+    { title: "Get Aadhaar", url: "https://uidai.gov.in/en/my-aadhaar/get-aadhaar.html", icon: "📇", desc: "Step-by-step enrolment guide & center locator.", tag: "ENROL" },
+    { title: "eDistrict Assam", url: "https://edistrict.assam.gov.in/eDistrict/index.html", icon: "🏛️", desc: "Apply for income, caste, residence certificates.", tag: "CERT" },
+    { title: "SewaSetu Home", url: "https://sewasetu.assam.gov.in/", icon: "🤝", desc: "200+ government services, schemes, grievance tracking.", tag: "GOVT" },
+    { title: "Bhuvan - NRSC", url: "http://bhuvan.nrsc.gov.in/ngmaps?mode=Hybrid", icon: "🗺️", desc: "ISRO's hybrid satellite maps & geospatial data.", tag: "GIS" },
+    { title: "Voter Service Portal (ECI)", url: "https://voters.eci.gov.in/", icon: "🗳️", desc: "Voter registration, correction, EPIC card download.", tag: "VOTER" }
+  ];
+
+  const additionalLinks = [
+    { title: "SEBA Correction", url: "https://sebaservices.in/correction-apply", icon: "✏️", desc: "Apply for corrections in SEBA documents.", tag: "EDU" },
+    { title: "SEBA Tracking", url: "https://sebaservices.in/app-tracking", icon: "📱", desc: "Track your SEBA service applications.", tag: "TRACK" },
+    { title: "Retrieve EID/UID", url: "https://myaadhaar.uidai.gov.in/retrieve-eid-uid", icon: "🔍", desc: "Forgot Aadhaar number? Retrieve online.", tag: "AADHAAR" },
+    { title: "Link Aadhaar-PAN", url: "https://eportal.incometax.gov.in/iec/foservices/#/pre-login/bl-link-aadhaar-landing", icon: "🔗", desc: "Link Aadhaar with PAN on Income Tax portal.", tag: "TAX" },
+    { title: "Income Tax e-Filing", url: "https://www.incometax.gov.in/iec/foportal/", icon: "💰", desc: "File returns, view credits, track refunds.", tag: "TAX" },
+    { title: "Assam Admission", url: "https://assamadmission.samarth.ac.in/index.php/site/login", icon: "🎓", desc: "Centralized higher education admissions.", tag: "ADMIT" },
+    { title: "Assam SHESP", url: "https://assamshesp.samarth.edu.in/index.php/site/login", icon: "💰", desc: "State higher education scholarship portal.", tag: "SCHOLAR" },
+    { title: "DARPAN Admission", url: "https://studentcorner.darpan.ahseconline.in/login", icon: "📝", desc: "ASSEB Div-II school admissions.", tag: "ADMIT" },
+    { title: "Smallpdf", url: "https://smallpdf.com/", icon: "📄", desc: "Free PDF tools: convert, compress, merge, sign.", tag: "TOOL" }
+  ];
+
+  const utilityLinks = [
+    { title: "RBI Official Website", url: "https://www.rbi.org.in/", icon: "🏦", desc: "Reserve Bank of India - Monetary policy, banking regulations, currency.", tag: "BANKING" },
+    { title: "PMJDY - Pradhan Mantri Jan Dhan Yojana", url: "https://www.pmjdy.gov.in/", icon: "💰", desc: "Financial inclusion scheme for bank accounts, insurance, pension.", tag: "SCHEME" },
+    { title: "DigiLocker", url: "https://www.digilocker.gov.in/", icon: "📁", desc: "Digital document wallet for storing and sharing government IDs.", tag: "DIGITAL" },
+    { title: "National Scholarship Portal", url: "https://scholarships.gov.in/", icon: "🎓", desc: "Centralized scholarship schemes for students across India.", tag: "SCHOLARSHIP" },
+    { title: "NTA - National Testing Agency", url: "https://nta.ac.in/", icon: "📝", desc: "Conducts entrance exams like JEE, NEET, UGC NET, CUET.", tag: "EDUCATION" },
+    { title: "Assam Police", url: "https://police.assam.gov.in/", icon: "👮", desc: "Official Assam Police website - citizen services, recruitment.", tag: "POLICE" },
+    { title: "Parivahan Sewa", url: "https://parivahan.gov.in/", icon: "🚗", desc: "Vehicle registration, driving license, transport services.", tag: "TRANSPORT" },
+    { title: "Sarathi Parivahan", url: "https://sarathi.parivahan.gov.in/sarathiservice/stateSelection.do", icon: "📜", desc: "Driving license services, learner's license, renewal.", tag: "TRANSPORT" },
+    { title: "APDCL - Assam Power", url: "https://apdcl.org/website/", icon: "⚡", desc: "Electricity bill payment, new connection, complaints.", tag: "UTILITY" },
+    { title: "Indian Oil Customer Portal", url: "https://cx.indianoil.in/webcenter/portal/Customer", icon: "⛽", desc: "LPG gas booking, cylinder status, customer services.", tag: "UTILITY" },
+    { title: "UMANG App", url: "https://web.umang.gov.in/landing/", icon: "📱", desc: "Unified Mobile App for Government Services - 2000+ services.", tag: "DIGITAL" },
+    { title: "Passport Seva", url: "https://www.passportindia.gov.in/", icon: "🛂", desc: "Apply for passport, track application, appointment booking.", tag: "PASSPORT" }
+  ];
+
+  const samarthLinks = [
+    { title: "Bodoland University", url: "https://buniv.samarth.edu.in/index.php/site/login", icon: "🏫", desc: "Student portal for academics & results.", tag: "UNIV" },
+    { title: "Gauhati University", url: "https://gauhati.samarth.edu.in/index.php/site/login", icon: "🏛️", desc: "Official Samarth e-governance portal.", tag: "UNIV" },
+    { title: "Dibrugarh University", url: "https://dibru.samarth.edu.in/index.php/site/login", icon: "📚", desc: "Academic management & student resources.", tag: "UNIV" },
+    { title: "Tezpur University", url: "https://tezuadm.samarth.edu.in/index.php/site/login", icon: "🎓", desc: "Admission & academic portal.", tag: "UNIV" }
+  ];
+
+  function renderCard(link) {
+    const card = document.createElement('div');
+    card.className = 'portal-card';
+    card.innerHTML = `
+      <div class="card-header">
+        <div class="icon-emblem">${link.icon}</div>
+        <div class="title-group">
+          <h3>${link.title}</h3>
+          <span class="service-type">${link.tag}</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="desc-text">${link.desc}</div>
+        <div class="btn-visit" data-url="${link.url}" data-title="${link.title}">Visit Official Page →</div>
+      </div>
+    `;
+    const btn = card.querySelector('.btn-visit');
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      recordClick(link.title, link.url);
+      window.open(link.url, '_blank');
+    });
+    return card;
+  }
+
+  const coreGrid = document.getElementById('coreLinksGrid');
+  const additionalGrid = document.getElementById('additionalLinksGrid');
+  const utilityGrid = document.getElementById('utilityLinksGrid');
+  const samarthGrid = document.getElementById('samarthLinksGrid');
+  
+  coreLinks.forEach(link => coreGrid.appendChild(renderCard(link)));
+  additionalLinks.forEach(link => additionalGrid.appendChild(renderCard(link)));
+  utilityLinks.forEach(link => utilityGrid.appendChild(renderCard(link)));
+  samarthLinks.forEach(link => samarthGrid.appendChild(renderCard(link)));
+
+  const total = coreLinks.length + additionalLinks.length + utilityLinks.length + samarthLinks.length;
+  document.getElementById('statLinks').innerText = total;
+  updateAdminPanel();
+
+  // SEARCH FUNCTIONALITY
+  const allCards = [...document.querySelectorAll('.portal-card')];
+  const searchInput = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('clearSearchBtn');
+  const searchStats = document.getElementById('searchStats');
+
+  function performSearch() {
+    const term = searchInput.value.trim().toLowerCase();
+    let visible = 0;
+    allCards.forEach((card) => {
+      const text = card.innerText.toLowerCase();
+      if (term === '' || text.includes(term)) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    searchStats.innerHTML = term === '' ? `Showing all ${total} links` : `Found ${visible} result${visible !== 1 ? 's' : ''}`;
+    clearBtn.classList.toggle('visible', term !== '');
+  }
+
+  searchInput.addEventListener('input', performSearch);
+  clearBtn.addEventListener('click', () => { searchInput.value = ''; performSearch(); });
+
+  // SECRET ADMIN - 8 SECOND HOLD
+  let holdTimer = null, isHolding = false;
+  const secretZone = document.getElementById('secretHoldZone');
+  const secretModal = document.getElementById('secretLoginModal');
+  const adminPanel = document.getElementById('secretAdminPanel');
+  const secretPass = document.getElementById('secretPassword');
+  const verifyBtn = document.getElementById('verifySecretBtn');
+  const errorMsg = document.getElementById('secretErrorMsg');
+  const closeModal = document.getElementById('closeSecretModalBtn');
+  const closeAdmin = document.getElementById('closeAdminPanelBtn');
+  const resetAdminBtn = document.getElementById('resetAnalyticsAdminBtn');
+
+  function startHold() { if(holdTimer) clearTimeout(holdTimer); isHolding = true; holdTimer = setTimeout(() => { if(isHolding) secretModal.classList.add('active'); isHolding = false; }, 8000); }
+  function cancelHold() { if(holdTimer) clearTimeout(holdTimer); isHolding = false; }
+  secretZone.addEventListener('mousedown', startHold); secretZone.addEventListener('touchstart', startHold);
+  secretZone.addEventListener('mouseup', cancelHold); secretZone.addEventListener('touchend', cancelHold);
+  secretZone.addEventListener('mouseleave', cancelHold);
+
+  function verify() {
+    if(secretPass.value === MASTER_SECRET) {
+      secretModal.classList.remove('active');
+      adminPanel.classList.add('active');
+      updateAdminPanel();
+      secretPass.value = ''; errorMsg.innerText = '';
+    } else { errorMsg.innerText = '❌ Invalid password. Access denied.'; }
+  }
+  verifyBtn.addEventListener('click', verify);
+  secretPass.addEventListener('keypress', (e) => { if(e.key === 'Enter') verify(); });
+  closeModal.addEventListener('click', () => { secretModal.classList.remove('active'); secretPass.value = ''; errorMsg.innerText = ''; });
+  closeAdmin.addEventListener('click', () => { adminPanel.classList.remove('active'); });
+  resetAdminBtn.addEventListener('click', resetAnalytics);
+  secretModal.addEventListener('click', (e) => { if(e.target === secretModal) secretModal.classList.remove('active'); });
+  adminPanel.addEventListener('click', (e) => { if(e.target === adminPanel) adminPanel.classList.remove('active'); });
+</script>
+</body>
+</html>
