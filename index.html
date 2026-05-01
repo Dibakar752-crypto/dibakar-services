@@ -618,10 +618,10 @@
   <div class="search-container">
     <div class="search-box">
       <i class="fas fa-search"></i>
-      <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search all 35+ links by title, description, or tag..." autocomplete="off">
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search all 36+ links by title, description, or tag..." autocomplete="off">
       <button id="clearSearchBtn" class="clear-search"><i class="fas fa-times-circle"></i></button>
     </div>
-    <div style="text-align: center;"><span class="search-stats" id="searchStats">Showing all 35 links</span></div>
+    <div style="text-align: center;"><span class="search-stats" id="searchStats">Showing all 36 links</span></div>
   </div>
 
   <!-- CONTACT SECTION -->
@@ -774,7 +774,7 @@
   }
 
   // ============================================================
-  // ALL LINKS DATA (35+ links including new ones)
+  // ALL LINKS DATA (36+ links including newly added registration)
   // ============================================================
   const coreLinks = [
     { title: "SewaSetu Assam", url: "https://sewasetu.assam.gov.in/site/trackappstatus", icon: "📋", desc: "Track application status in real-time for certificates, licenses.", tag: "TRACK" },
@@ -818,7 +818,8 @@
     { title: "Bodoland University", url: "https://buniv.samarth.edu.in/index.php/site/login", icon: "🏫", desc: "Student portal for academics & results.", tag: "UNIV" },
     { title: "Gauhati University", url: "https://gauhati.samarth.edu.in/index.php/site/login", icon: "🏛️", desc: "Official Samarth e-governance portal.", tag: "UNIV" },
     { title: "Dibrugarh University", url: "https://dibru.samarth.edu.in/index.php/site/login", icon: "📚", desc: "Academic management & student resources.", tag: "UNIV" },
-    { title: "Tezpur University", url: "https://tezuadm.samarth.edu.in/index.php/site/login", icon: "🎓", desc: "Admission & academic portal.", tag: "UNIV" }
+    { title: "Tezpur University", url: "https://tezuadm.samarth.edu.in/index.php/site/login", icon: "🎓", desc: "Admission & academic portal.", tag: "UNIV" },
+    { title: "Assam Admission New Registration", url: "https://assamadmission.samarth.ac.in/index.php/registration/user-new/register", icon: "📝", desc: "New user registration for Assam higher education admissions (UG/PG) via Samarth portal.", tag: "REGISTER" }
   ];
 
   function renderCard(link) {
