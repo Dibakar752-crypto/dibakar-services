@@ -600,6 +600,41 @@
       .footer-contact { gap: 8px; }
       .footer-contact a { padding: 4px 10px; font-size: 10px; }
     }
+
+    /* New notice styling - elegant & readable */
+    .public-notice {
+      background: rgba(255, 220, 150, 0.2);
+      backdrop-filter: blur(8px);
+      border-left: 6px solid #ff8c00;
+      border-radius: 20px;
+      padding: 14px 18px;
+      margin: 16px 0 8px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-align: left;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      font-family: inherit;
+    }
+    .public-notice i {
+      color: #ff8c00;
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+    .service-offer {
+      background: linear-gradient(115deg, rgba(46,125,50,0.15), rgba(255,193,7,0.1));
+      border-radius: 28px;
+      padding: 12px 18px;
+      margin: 12px 0 8px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid rgba(255,193,7,0.4);
+      text-align: center;
+      color: #e65100;
+    }
+    body.dark .service-offer {
+      color: #ffcc80;
+    }
   </style>
 </head>
 <body>
@@ -635,7 +670,7 @@
     </div>
   </div>
 
-  <!-- CORE GOVERNMENT LINKS (UPDATED with MGNREGA) -->
+  <!-- CORE GOVERNMENT LINKS -->
   <div><span class="section-header"><i class="fas fa-landmark"></i> Core Government Services</span></div>
   <div class="link-grid" id="coreLinksGrid"></div>
 
@@ -650,6 +685,16 @@
   <!-- SAMARTH EDUCATION HUB -->
   <div><span class="section-header"><i class="fas fa-university"></i> Samarth Education Hub</span></div>
   <div class="link-grid" id="samarthLinksGrid"></div>
+
+  <!-- ★ NEW: PUBLIC NOTICE (Placed exactly before the service offer line as requested) -->
+  <div class="public-notice">
+    <i class="fas fa-exclamation-triangle"></i> <strong>⚠️ Public Notice:</strong> This portal is created only for helping users access official government and educational websites easily. All services, certificates, registrations, corrections, and applications are processed only through respective official government portals. Users are requested to verify all information carefully before submission. Dibakar Portal is not directly affiliated with any government authority.
+  </div>
+
+  <!-- ★ NEW: Service line added exactly below the public notice as requested -->
+  <div class="service-offer">
+    <i class="fas fa-hand-holding-heart"></i> Do you want to apply for a new PAN card or make corrections? Minor to major update, caste certificate, income certificate, Gorkha community certificate, voter registration & correction, etc. - For all services, contact me.
+  </div>
 
   <div class="info-strip">
     <span><i class="fas fa-shield-alt"></i> Verified Government Domains</span>
@@ -702,9 +747,7 @@
 </div>
 
 <script>
-  // ============================================================
   // DARK MODE
-  // ============================================================
   const darkToggle = document.getElementById('darkModeToggle');
   darkToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark');
@@ -717,17 +760,13 @@
     darkToggle.innerHTML = '☀️';
   }
 
-  // ============================================================
   // SECRET KEY
-  // ============================================================
   const _k1 = () => "Dheeraj";
   const _k2 = () => "@96787";
   const _k3 = () => "88044";
   const MASTER_SECRET = (function() { let full = _k1() + _k2() + _k3(); delete window._k1; delete window._k2; delete window._k3; return full; })();
 
-  // ============================================================
-  // ANALYTICS & VISITOR TRACKING
-  // ============================================================
+  // ANALYTICS
   let clickCounts = JSON.parse(localStorage.getItem('linkClickCounts')) || {};
   let recentLinks = JSON.parse(localStorage.getItem('recentLinks')) || [];
   let totalVisitors = parseInt(localStorage.getItem('totalVisitors')) || 0;
@@ -773,9 +812,7 @@
     updateAdminPanel();
   }
 
-  // ============================================================
-  // ALL LINKS DATA (37 links including new MGNREGA Assam)
-  // ============================================================
+  // LINK DATA (including MGNREGA Assam)
   const coreLinks = [
     { title: "SewaSetu Assam", url: "https://sewasetu.assam.gov.in/site/trackappstatus", icon: "📋", desc: "Track application status in real-time for certificates, licenses.", tag: "TRACK" },
     { title: "Assam Career", url: "https://www.assamcareer.com/", icon: "💼", desc: "Latest govt job notifications, admit cards, exam results.", tag: "JOB" },
@@ -785,7 +822,6 @@
     { title: "SewaSetu Home", url: "https://sewasetu.assam.gov.in/", icon: "🤝", desc: "200+ government services, schemes, grievance tracking.", tag: "GOVT" },
     { title: "Bhuvan - NRSC", url: "http://bhuvan.nrsc.gov.in/ngmaps?mode=Hybrid", icon: "🗺️", desc: "ISRO's hybrid satellite maps & geospatial data.", tag: "GIS" },
     { title: "Voter Service Portal (ECI)", url: "https://voters.eci.gov.in/", icon: "🗳️", desc: "Voter registration, correction, EPIC card download.", tag: "VOTER" },
-    // NEW MGNREGA Assam Link Added Here
     { title: "MGNREGA Assam", url: "https://nregastrep.nic.in/netnrega/homestciti.aspx?state_code=04&state_name=ASSAM&lflag=eng&labels=labels", icon: "🌾", desc: "Mahatma Gandhi National Rural Employment Guarantee Act - Assam. Check job cards, muster rolls, payment status, and work details.", tag: "RURAL" }
   ];
 
@@ -863,7 +899,7 @@
   document.getElementById('statLinks').innerText = total;
   updateAdminPanel();
 
-  // SEARCH FUNCTIONALITY
+  // SEARCH
   const allCards = [...document.querySelectorAll('.portal-card')];
   const searchInput = document.getElementById('searchInput');
   const clearBtn = document.getElementById('clearSearchBtn');
@@ -888,7 +924,7 @@
   searchInput.addEventListener('input', performSearch);
   clearBtn.addEventListener('click', () => { searchInput.value = ''; performSearch(); });
 
-  // SECRET ADMIN - 8 SECOND HOLD
+  // SECRET ADMIN 8-second hold
   let holdTimer = null, isHolding = false;
   const secretZone = document.getElementById('secretHoldZone');
   const secretModal = document.getElementById('secretLoginModal');
