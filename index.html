@@ -653,10 +653,10 @@
   <div class="search-container">
     <div class="search-box">
       <i class="fas fa-search"></i>
-      <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search all 37+ links by title, description, or tag..." autocomplete="off">
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search all 39+ links by title, description, or tag..." autocomplete="off">
       <button id="clearSearchBtn" class="clear-search"><i class="fas fa-times-circle"></i></button>
     </div>
-    <div style="text-align: center;"><span class="search-stats" id="searchStats">Showing all 37 links</span></div>
+    <div style="text-align: center;"><span class="search-stats" id="searchStats">Showing all 39 links</span></div>
   </div>
 
   <!-- CONTACT SECTION -->
@@ -678,6 +678,10 @@
   <div><span class="section-header"><i class="fas fa-plus-circle"></i> Additional Essential Services</span></div>
   <div class="link-grid" id="additionalLinksGrid"></div>
 
+  <!-- TOOLS & UTILITIES (Includes the two new PDF/Image tools) -->
+  <div><span class="section-header"><i class="fas fa-tools"></i> Tools & Free Editors</span></div>
+  <div class="link-grid" id="toolsLinksGrid"></div>
+
   <!-- BANKING, TRANSPORT & UTILITIES -->
   <div><span class="section-header"><i class="fas fa-bank"></i> Banking, Transport & Utilities</span></div>
   <div class="link-grid" id="utilityLinksGrid"></div>
@@ -686,12 +690,12 @@
   <div><span class="section-header"><i class="fas fa-university"></i> Samarth Education Hub</span></div>
   <div class="link-grid" id="samarthLinksGrid"></div>
 
-  <!-- ★ NEW: PUBLIC NOTICE (Placed exactly before the service offer line as requested) -->
+  <!-- PUBLIC NOTICE -->
   <div class="public-notice">
     <i class="fas fa-exclamation-triangle"></i> <strong>⚠️ Public Notice:</strong> This portal is created only for helping users access official government and educational websites easily. All services, certificates, registrations, corrections, and applications are processed only through respective official government portals. Users are requested to verify all information carefully before submission. Dibakar Portal is not directly affiliated with any government authority.
   </div>
 
-  <!-- ★ NEW: Service line added exactly below the public notice as requested -->
+  <!-- SERVICE OFFER LINE -->
   <div class="service-offer">
     <i class="fas fa-hand-holding-heart"></i> Do you want to apply for a new PAN card or make corrections? Minor to major update, caste certificate, income certificate, Gorkha community certificate, voter registration & correction, etc. - For all services, contact me.
   </div>
@@ -716,7 +720,7 @@
   </footer>
 </div>
 
-<!-- SECRET ZONE -->
+<!-- SECRET ZONE (Admin) -->
 <div id="secretHoldZone" class="secret-zone"></div>
 <div id="secretLoginModal" class="modal-overlay">
   <div class="login-card-modal">
@@ -812,7 +816,7 @@
     updateAdminPanel();
   }
 
-  // LINK DATA (including MGNREGA Assam)
+  // LINK DATA (New Tools: Sejda PDF Editor & Image.Pi7)
   const coreLinks = [
     { title: "SewaSetu Assam", url: "https://sewasetu.assam.gov.in/site/trackappstatus", icon: "📋", desc: "Track application status in real-time for certificates, licenses.", tag: "TRACK" },
     { title: "Assam Career", url: "https://www.assamcareer.com/", icon: "💼", desc: "Latest govt job notifications, admit cards, exam results.", tag: "JOB" },
@@ -822,7 +826,7 @@
     { title: "SewaSetu Home", url: "https://sewasetu.assam.gov.in/", icon: "🤝", desc: "200+ government services, schemes, grievance tracking.", tag: "GOVT" },
     { title: "Bhuvan - NRSC", url: "http://bhuvan.nrsc.gov.in/ngmaps?mode=Hybrid", icon: "🗺️", desc: "ISRO's hybrid satellite maps & geospatial data.", tag: "GIS" },
     { title: "Voter Service Portal (ECI)", url: "https://voters.eci.gov.in/", icon: "🗳️", desc: "Voter registration, correction, EPIC card download.", tag: "VOTER" },
-    { title: "MGNREGA Assam", url: "https://nregastrep.nic.in/netnrega/homestciti.aspx?state_code=04&state_name=ASSAM&lflag=eng&labels=labels", icon: "🌾", desc: "Mahatma Gandhi National Rural Employment Guarantee Act - Assam. Check job cards, muster rolls, payment status, and work details.", tag: "RURAL" }
+    { title: "MGNREGA Assam", url: "https://nregastrep.nic.in/netnrega/homestciti.aspx?state_code=04&state_name=ASSAM&lflag=eng&labels=labels", icon: "🌾", desc: "Mahatma Gandhi National Rural Employment Guarantee Act - Assam. Check job cards, muster rolls, payment status.", tag: "RURAL" }
   ];
 
   const additionalLinks = [
@@ -837,9 +841,15 @@
     { title: "Smallpdf", url: "https://smallpdf.com/pdf-tools", icon: "📄", desc: "Free PDF tools: convert, compress, merge, sign.", tag: "TOOL" }
   ];
 
+  // New Tools section (exactly the two requested links)
+  const toolsLinks = [
+    { title: "Sejda PDF Editor", url: "https://www.sejda.com/pdf-editor", icon: "✏️📄", desc: "Powerful online PDF editor: edit text, images, add signatures, fill forms, and annotate PDFs directly in your browser.", tag: "PDF EDITOR" },
+    { title: "Image Pi7 Online Tools", url: "https://image.pi7.org/", icon: "🖼️🔧", desc: "Free image editing suite: compress, resize, convert, enhance, and apply effects to images instantly.", tag: "IMAGE TOOL" }
+  ];
+
   const utilityLinks = [
-    { title: "RBI Official Website", url: "https://www.rbi.org.in/", icon: "🏦", desc: "Reserve Bank of India - Monetary policy, banking regulations, currency.", tag: "BANKING" },
-    { title: "PMJDY - Pradhan Mantri Jan Dhan Yojana", url: "https://www.pmjdy.gov.in/", icon: "💰", desc: "Financial inclusion scheme for bank accounts, insurance, pension.", tag: "SCHEME" },
+    { title: "RBI Official Website", url: "https://www.rbi.org.in/", icon: "🏦", desc: "Reserve Bank of India - Monetary policy, banking regulations.", tag: "BANKING" },
+    { title: "PMJDY - Pradhan Mantri Jan Dhan Yojana", url: "https://www.pmjdy.gov.in/", icon: "💰", desc: "Financial inclusion scheme for bank accounts, insurance.", tag: "SCHEME" },
     { title: "DigiLocker", url: "https://www.digilocker.gov.in/", icon: "📁", desc: "Digital document wallet for storing and sharing government IDs.", tag: "DIGITAL" },
     { title: "National Scholarship Portal", url: "https://scholarships.gov.in/", icon: "🎓", desc: "Centralized scholarship schemes for students across India.", tag: "SCHOLARSHIP" },
     { title: "NTA - National Testing Agency", url: "https://nta.ac.in/", icon: "📝", desc: "Conducts entrance exams like JEE, NEET, UGC NET, CUET.", tag: "EDUCATION" },
@@ -887,15 +897,17 @@
 
   const coreGrid = document.getElementById('coreLinksGrid');
   const additionalGrid = document.getElementById('additionalLinksGrid');
+  const toolsGrid = document.getElementById('toolsLinksGrid');
   const utilityGrid = document.getElementById('utilityLinksGrid');
   const samarthGrid = document.getElementById('samarthLinksGrid');
   
   coreLinks.forEach(link => coreGrid.appendChild(renderCard(link)));
   additionalLinks.forEach(link => additionalGrid.appendChild(renderCard(link)));
+  toolsLinks.forEach(link => toolsGrid.appendChild(renderCard(link)));
   utilityLinks.forEach(link => utilityGrid.appendChild(renderCard(link)));
   samarthLinks.forEach(link => samarthGrid.appendChild(renderCard(link)));
 
-  const total = coreLinks.length + additionalLinks.length + utilityLinks.length + samarthLinks.length;
+  const total = coreLinks.length + additionalLinks.length + toolsLinks.length + utilityLinks.length + samarthLinks.length;
   document.getElementById('statLinks').innerText = total;
   updateAdminPanel();
 
